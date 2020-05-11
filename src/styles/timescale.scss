@@ -1,0 +1,45 @@
+// стили боковой временной шкалы
+.calendar__week-container {
+    display: flex;
+}
+
+
+
+.calendar__lines {
+    width: 20px;
+    border-right: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar__lines-semi {
+border-bottom: 1px solid black;
+height: 60px;
+}
+
+.calendar__lines-semi:first-child {
+    height: 20.2px;
+}
+
+.calendar__time-scale {
+    display: flex;
+    flex-direction: column;
+    width: 80px;
+    align-items: center;
+    font-size: 13px;
+}
+
+.calendar__time-scale-polar {
+    font-size: 13px;
+    border-bottom: 1px solid black;
+    width: 100%;
+    padding-left: 10px;
+    height: 20.2px;
+}
+
+.calendar__time-scale-time {
+    height: 60px;
+}
+.calendar__time-scale-time:nth-child(2) {
+    height: 52px;
+}
