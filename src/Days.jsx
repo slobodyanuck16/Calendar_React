@@ -117,7 +117,7 @@ class Days extends Component {
         const fullArray = this.getHours(this.props.events, this.props.monday);
         console.log(fullArray);
 
-        const week = generateWeekRangeFullDate(this.props.monday);
+        // const week = generateWeekRangeFullDate(this.props.monday);
 
         const events = this.props.events;
         return (
