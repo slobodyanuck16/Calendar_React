@@ -38,10 +38,7 @@ class CalendarTimeScale extends Component {
                 <div className="calendar__time-scale-polar">GMT+02</div>
                 {hoursSells.map((hour) => {
                     return (
-                        <div
-                            key={this.state.hours}
-                            className="calendar__time-scale-time"
-                        >
+                        <div key={hour} className="calendar__time-scale-time">
                             {hour}
                         </div>
                     );

@@ -1,9 +1,38 @@
 import React, { Component } from "react";
+import 'materialize-css';
 
-class Calendar extends Component {
+class Modal extends Component {
+
+    dayTime = this.props.days.time
+    dayEvent = this.props.days.events
+
+    createEventObj = (e) => {
+        // Считываем форму
+        // Создаем объект где данные инпута будут равны ключам объекта
+        // Добавляем этот объект в массив дней, где указанная дата начала ивента, 
+        //     тоесть час, будет равен или ключу time или индексу масива дней
+            e.preventDefault();
+            const formData = [...new FormData(this.formRef)].reduce(
+                (acc, [name, value]) => ({ ...acc, [name]: value }),
+                {},
+            );
+            this.setState({
+                days: formData
+            })
+            console.log(this.dayTime);
+            console.log(this.props.days);
+            
+            console.log(formData);
+            
+    }
+
+    setRef = (node) => {
+        this.formRef = node;
+    };
+
     render() {
         return (
-            <div className="modal hidden overlay">
+            <div className="modal hidden overlay" id="needToRemove">
                 <div className="modal__content">
                     <div className="modal__content-icons">
                         <i className="small material-icons modal__content-clock">
@@ -14,7 +43,7 @@ class Calendar extends Component {
                         </i>
                     </div>
                     <div className="create-event">
-                        <form className="event-form">
+                        <form className="event-form" onSubmit={this.createEventObj} ref={this.setRef}>
                             <button className="create-event__close-btn">
                                 +
                             </button>
@@ -61,4 +90,4 @@ class Calendar extends Component {
     }
 }
 
-export default Calendar;
+export default Modal;

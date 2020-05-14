@@ -35,9 +35,12 @@ class CalendarLines extends Component {
         const hoursSells = this.state.lines.slice();
         return (
             <div className="calendar__lines">
-                {hoursSells.map((line) => {
+                {hoursSells.map(() => {
                     return (
-                        <div key={line} className="calendar__lines-semi"></div>
+                        <div
+                            key={Math.random()}
+                            className="calendar__lines-semi"
+                        ></div>
                     );
                 })}
             </div>

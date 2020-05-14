@@ -1,1 +1,10 @@
 // стили отображаемого в календаре события
+.event {
+    background-color: midnightblue;
+    color: white;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 8px;
+    height: 55px;
+    width: 175px;
+}

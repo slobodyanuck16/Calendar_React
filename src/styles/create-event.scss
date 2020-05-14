@@ -11,14 +11,18 @@
         justify-content: space-around;
         margin-right: 20px;
     }
-    &__content-clock {}
-    &__content-list {}
+    &__content-clock {
+        margin-top: 85px;
+    }
+    &__content-list {
+        margin-bottom: 50px;
+    }
 }
 
 .event-form__description {
     border: none;
-    margin-top: 25px;
-    margin-bottom: 25px;
+    margin-top: 65px;
+    margin-bottom: 15px;
 }
 
 .event-form {
@@ -26,12 +30,15 @@
     // flex-direction: column; 
     &__title {
         border: none;
+        border-bottom: 1px solid blue;
         margin-bottom: 100px;
+        font-size: 22px;
     }
     &__time {
         display: flex;
         align-items: center;
         border: none;
+        margin-top: 30px;
     }
     &__time-date {
         border: none;
@@ -44,6 +51,8 @@
     }
     &__submit-btn {
         float: right;
+        margin-top: 20px;
+    width: 100px;
     }
 }
 
@@ -58,5 +67,6 @@
         float: right;
         background-color: transparent;
         border: none;
+        transform: rotate(45deg);
     }
 }
