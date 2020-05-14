@@ -1,62 +1,136 @@
 import React, { Component } from "react";
 import { object } from "prop-types";
+import { generateWeekRange } from "./Utils";
+
+const generateWeekRangeFullDate = (startDate) => {
+    const result = [];
+    for (let i = 0; i < 7; i += 1) {
+        const base = new Date(startDate);
+        result.push(new Date(base.setDate(base.getDate() + i)));
+    }
+    return result;
+};
 
 class Days extends Component {
-    addEventObj = (e) => {
-        console.log(e.target);
+    getHours = (event, dayDate) => {
+        return [
+            {
+                dayDate,
+                event,
+            },
+            {
+                dayDate,
+                event,
+            },
+            {
+                dayDate,
+                event,
+            },
+            {
+                dayDate,
+                event,
+            },
+            {
+                dayDate,
+                event,
+            },
+            {
+                dayDate,
+                event,
+            },
+            {
+                dayDate,
+                event,
+            },
+            {
+                dayDate,
+                event,
+            },
+            {
+                dayDate,
+                event,
+            },
+            {
+                dayDate,
+                event,
+            },
+            {
+                dayDate,
+                event,
+            },
+            {
+                dayDate,
+                event,
+            },
+            {
+                dayDate,
+                event,
+            },
+            {
+                dayDate,
+                event,
+            },
+            {
+                dayDate,
+                event,
+            },
+            {
+                dayDate,
+                event,
+            },
+            {
+                dayDate,
+                event,
+            },
+            {
+                dayDate,
+                event,
+            },
+            {
+                dayDate,
+                event,
+            },
+            {
+                dayDate,
+                event,
+            },
+            {
+                dayDate,
+                event,
+            },
+            {
+                dayDate,
+                event,
+            },
+            {
+                dayDate,
+                event,
+            },
+            {
+                dayDate,
+                event,
+            },
+        ];
     };
 
     render() {
-        const dayEvents = [
-            { time: "00:00" },
-            { time: "01:00" },
-            { time: "02:00" },
-            { time: "03:00" },
-            { time: "04:00" },
-            { time: "05:00" },
-            { time: "06:00" },
-            { time: "07:00" },
-            { time: "08:00" },
-            { time: "09:00" },
-            { time: "10:00" },
-            { time: "11:00" },
-            { time: "12:00" },
-            { time: "13:00" },
-            { time: "14:00" },
-            { time: "15:00" },
-            { time: "16:00" },
-            { time: "17:00" },
-        ]
-        let i = 0;
+        const fullArray = this.getHours(this.props.events, this.props.monday);
+        console.log(fullArray);
 
-        const result = this.props.events.filter(
-            (day) => day.startTime === dayEvents[i++].time
-        );
+        const week = generateWeekRangeFullDate(this.props.monday);
 
-        const events = [
-            {events: result[0]},
-            {events: result[1]},
-            {events: result[2]},
-        ]
-
-        console.log(dayEvents);
-        // console.log(events);
-        
-
-        for (let i = 0; i < dayEvents.length; i++) {
-            Object.assign(dayEvents[i], events[i])
-        }
-
+        const events = this.props.events;
         return (
             <>
-                {dayEvents.map((day) => {
+                {fullArray.map((day) => {
                     return (
-                        <div
-                            key={day.time}
-                            className="calendar__day-sell"
-                            onClick={this.addEventObj}
-                        >
-                            {/* <div className="event">event or nothing</div> */}
+                        <div key={day} className="calendar__day-sell">
+                            {events.map((event) => {
+                                return (
+                                    <div className="event">{`${event.title} 
+                                 ${event.startTime} ${event.endTime}`}</div>
+                                );
+                            })}
                         </div>
                     );
                 })}

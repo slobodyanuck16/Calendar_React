@@ -27,7 +27,7 @@ class App extends Component {
                         description: "213414",
                     },
                     {
-                        title: "testevent2",
+                        title: "testevent3",
                         date: "2020-05-15",
                         startTime: "03:00",
                         endTime: "03:30",
@@ -83,7 +83,7 @@ class App extends Component {
                 <Calendar
                     onWeekForward={this.onWeekForward}
                     onWeekBack={this.onWeekBack}
-                    getWeek={this.getWeek}
+                    getCurrentWeek={this.getCurrentWeek}
                     monday={this.state.monday}
                     events={this.state.events}
                 />

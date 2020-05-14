@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import CalendarHeaderNumbersOfWeek from "./CalendarHeaderNumbersOfWeek";
 import { getStartOfWeek, generateWeekRange } from "./Utils";
 
 class CalendarHeader extends Component {
