@@ -11,33 +11,29 @@ class App extends Component {
         super(props),
             (this.state = {
                 monday: getStartOfWeek(new Date()),
-                days: [
-                    { time: 0, events: [] },
-                    { time: 1, events: [] },
-                    { time: 2, events: [] },
-                    { time: 3, events: [] },
-                    { time: 4, events: [] },
-                    { time: 5, events: [] },
-                    { time: 6, events: [] },
-                    { time: 7, events: [] },
-                    { time: 8, events: [] },
-                    { time: 9, events: [] },
-                    { time: 10, events: [] },
-                    { time: 11, events: [] },
-                    { time: 12, events: [] },
-                    { time: 13, events: [] },
-                    { time: 14, events: [] },
-                    { time: 15, events: [] },
-                    { time: 16, events: [] },
-                    { time: 17, events: [] },
-                    { time: 18, events: [] },
-                    { time: 19, events: [] },
-                    { time: 20, events: [] },
-                    { time: 21, events: [] },
-                    { time: 22, events: [] },
-                    { time: 23, events: [] },
-                    { time: "empty", events: [] },
-                 ]
+                events: [
+                    {
+                        title: "testevent1",
+                        date: "2020-05-14",
+                        startTime: "02:00",
+                        endTime: "02:30",
+                        description: "213414",
+                    },
+                    {
+                        title: "testevent2",
+                        date: "2020-05-15",
+                        startTime: "01:00",
+                        endTime: "01:30",
+                        description: "213414",
+                    },
+                    {
+                        title: "testevent2",
+                        date: "2020-05-15",
+                        startTime: "03:00",
+                        endTime: "03:30",
+                        description: "213414",
+                    },
+                ],
             });
     }
 
@@ -89,9 +85,9 @@ class App extends Component {
                     onWeekBack={this.onWeekBack}
                     getWeek={this.getWeek}
                     monday={this.state.monday}
-                    days={this.state.days}
+                    events={this.state.events}
                 />
-                <Modal days={this.state.days}/>
+                <Modal events={this.state.events} />
                 <Popup />
             </div>
         );
@@ -99,3 +95,10 @@ class App extends Component {
 }
 
 export default App;
+
+// создаем пустой масив с ивентами в app
+// пробрасываем масив в modal чтобы добавить в него объект с ивентом
+// пробрасываем масив в days, создаем вокруг этого масива масив с 24 элементами (как????)
+//
+//
+//

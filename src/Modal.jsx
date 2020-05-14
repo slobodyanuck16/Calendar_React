@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import 'materialize-css';
 
 class Modal extends Component {
-
-    dayTime = this.props.days.time
-    dayEvent = this.props.days.events
-
     createEventObj = (e) => {
         // Считываем форму
         // Создаем объект где данные инпута будут равны ключам объекта
@@ -17,13 +13,8 @@ class Modal extends Component {
                 {},
             );
             this.setState({
-                days: formData
+                events: this.props.events.push(formData)
             })
-            console.log(this.dayTime);
-            console.log(this.props.days);
-            
-            console.log(formData);
-            
     }
 
     setRef = (node) => {

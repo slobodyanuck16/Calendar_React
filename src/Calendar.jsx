@@ -9,14 +9,6 @@ class Calendar extends Component {
         weeks: [1, 2, 3, 4, 5, 6, 7],
     };
 
-    generateNumbersRange = (from, to) => {
-        const result = [];
-        for (let i = from; i <= to; i++) {
-            result.push(i);
-        }
-        return result;
-    };
-
     render() {
         const sells = this.state.weeks;
 
@@ -25,7 +17,7 @@ class Calendar extends Component {
         const getWeek = this.props.getWeek;
         const weeksNum = this.props.weeksNum;
         const monday = this.props.monday;
-        const days = this.props.days;
+        const events = this.props.events;
 
         return (
             <section className="calendar">
@@ -48,7 +40,7 @@ class Calendar extends Component {
                                         className="calendar__day"
                                     >
                                         <div className="calendar__day-line"></div>
-                                        <Days days={days} />
+                                        <Days events={events} />
                                     </div>
                                 );
                             })}
