@@ -101,6 +101,15 @@ const getMethodsNames = {
   
   export default shmoment;
 
+export const generateWeekRangeFullDate = (startDate) => {
+    const result = [];
+    for (let i = 0; i < 7; i += 1) {
+        const base = new Date(startDate);
+        result.push(new Date(base.setDate(base.getDate() + i)));
+    }
+    return result;
+};
+
 export const generateNumbersRange = (from, to) => {
     const result = [];
     for (let i = from; i <= to; i++) {

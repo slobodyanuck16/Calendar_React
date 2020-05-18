@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Calendar extends Component {
+class Popup extends Component {
     render() {
         return (
             <div className="popup hidden overlay">
@@ -13,4 +13,4 @@ class Calendar extends Component {
     }
 }
 
-export default Calendar;
+export default Popup;

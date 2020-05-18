@@ -3,8 +3,7 @@ import Header from "./Header";
 import Calendar from "./Calendar";
 import Modal from "./Modal";
 import Popup from "./Popup";
-import { getStartOfWeek, generateWeekRange } from "./Utils";
-import moment from "moment";
+import { getStartOfWeek } from "./Utils";
 
 class App extends Component {
     constructor(props) {
@@ -14,9 +13,9 @@ class App extends Component {
                 events: [
                     {
                         title: "testevent1",
-                        date: "2020-05-14",
-                        startTime: "02:00",
-                        endTime: "02:30",
+                        date: "2020-05-11",
+                        startTime: "00:00",
+                        endTime: "00:30",
                         description: "213414",
                     },
                     {
@@ -28,9 +27,16 @@ class App extends Component {
                     },
                     {
                         title: "testevent3",
-                        date: "2020-05-15",
+                        date: "2020-05-11",
                         startTime: "03:00",
                         endTime: "03:30",
+                        description: "213414",
+                    },
+                    {
+                        title: "testevent3",
+                        date: "2020-05-11",
+                        startTime: "23:00",
+                        endTime: "23:30",
                         description: "213414",
                     },
                 ],
@@ -88,17 +94,10 @@ class App extends Component {
                     events={this.state.events}
                 />
                 <Modal events={this.state.events} />
-                <Popup />
+                {/* <Popup /> */}
             </div>
         );
     }
 }
 
 export default App;
-
-// создаем пустой масив с ивентами в app
-// пробрасываем масив в modal чтобы добавить в него объект с ивентом
-// пробрасываем масив в days, создаем вокруг этого масива масив с 24 элементами (как????)
-//
-//
-//

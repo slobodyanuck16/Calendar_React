@@ -17,9 +17,8 @@ class Header extends Component {
         return (
             <header className="header"
             onScroll={this.stickHeaderOnScroll}>
-                <button className="header__element button create-event-btn">
-                    <i className="fas fa-plus create-event-btn__icon"
-                    onClick={this.createEvent}></i>Create
+                <button className="header__element button create-event-btn" onClick={this.createEvent}>
+                    <i className="fas fa-plus create-event-btn__icon"></i>Create
                 </button>
                 <div className="header__element navigation">
                     <button

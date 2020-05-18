@@ -1,20 +1,21 @@
 import React, { Component } from "react";
-import 'materialize-css';
+import "materialize-css";
 
 class Modal extends Component {
     createEventObj = (e) => {
-        // Считываем форму
-        // Создаем объект где данные инпута будут равны ключам объекта
-        // Добавляем этот объект в массив дней, где указанная дата начала ивента, 
-        //     тоесть час, будет равен или ключу time или индексу масива дней
-            e.preventDefault();
-            const formData = [...new FormData(this.formRef)].reduce(
-                (acc, [name, value]) => ({ ...acc, [name]: value }),
-                {},
-            );
-            this.setState({
-                events: this.props.events.push(formData)
-            })
+        e.preventDefault();
+        const formData = [...new FormData(this.formRef)].reduce(
+            (acc, [name, value]) => ({ ...acc, [name]: value }),
+            {}
+        );
+        this.setState({
+            events: this.props.events.push(formData),
+        });
+    };
+
+    hidePopup = () => {
+        const hidden = document.getElementById("needToRemove");
+        hidden.classList.add("hidden");
     }
 
     setRef = (node) => {
@@ -34,7 +35,11 @@ class Modal extends Component {
                         </i>
                     </div>
                     <div className="create-event">
-                        <form className="event-form" onSubmit={this.createEventObj} ref={this.setRef}>
+                        <form
+                            className="event-form"
+                            onSubmit={this.createEventObj}
+                            ref={this.setRef}
+                        >
                             <button className="create-event__close-btn">
                                 +
                             </button>
@@ -70,6 +75,7 @@ class Modal extends Component {
                             <button
                                 type="submit"
                                 className="event-form__submit-btn"
+                                onClick={this.hidePopup}
                             >
                                 Create
                             </button>

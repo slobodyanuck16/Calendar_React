@@ -1,15 +1,14 @@
 import React, { Component } from "react";
-import Days from "./Days";
+import Day from "./Day";
 import CalendarHeader from "./CalendarHeader";
 import CalendarTimeScale from "./CalendarTimeScale";
 import CalendarLines from "./CalendarLines";
-import {generateWeekRange} from './Utils';
+import { generateWeekRangeFullDate } from "./Utils";
 
 class Calendar extends Component {
     render() {
         const monday = this.props.monday;
-        const weekArray = generateWeekRange(monday);
-
+        const weekArrayWithFullDate = generateWeekRangeFullDate(monday)
         const onWeekBack = this.props.onWeekBack;
         const onWeekForward = this.props.onWeekForward;
         const getCurrentWeek = this.props.getCurrentWeek;
@@ -30,14 +29,14 @@ class Calendar extends Component {
                         <CalendarTimeScale />
                         <CalendarLines />
                         <div className="calendar__week">
-                            {weekArray.map((daySell) => {
+                            {weekArrayWithFullDate.map((daySell) => {
                                 return (
                                     <div
                                         key={daySell}
                                         className="calendar__day"
                                     >
                                         <div className="calendar__day-line"></div>
-                                        <Days events={events} monday={monday}/>
+                                        <Day events={events} day={daySell} />
                                     </div>
                                 );
                             })}
