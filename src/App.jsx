@@ -13,21 +13,21 @@ class App extends Component {
                 events: [
                     {
                         title: "testevent1",
-                        date: "2020-05-11",
+                        date: "2020-05-18",
                         startTime: "00:00",
                         endTime: "00:30",
                         description: "213414",
                     },
                     {
                         title: "testevent2",
-                        date: "2020-05-15",
+                        date: "2020-05-19",
                         startTime: "01:00",
                         endTime: "01:30",
                         description: "213414",
                     },
                     {
                         title: "testevent3",
-                        date: "2020-05-11",
+                        date: "2020-05-20",
                         startTime: "03:00",
                         endTime: "03:30",
                         description: "213414",

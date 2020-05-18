@@ -117,3 +117,14 @@ export const generateNumbersRange = (from, to) => {
     }
     return result;
 };
+
+
+export const getHoursArray = () => {
+    const hoursArray = generateNumbersRange(0, 23)
+        .map(num => {
+                if ((num - 10) < 0) {
+                    return `0${num}:00`}
+                else {return `${num}:00`}
+            });   
+    return hoursArray;
+}
