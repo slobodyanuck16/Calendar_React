@@ -6,13 +6,16 @@ import CalendarLines from "./CalendarLines";
 import { generateWeekRangeFullDate } from "./Utils";
 
 class Calendar extends Component {
+    state = {
+        redLine: new Date(),
+    };
+
     render() {
         const monday = this.props.monday;
-        const weekArrayWithFullDate = generateWeekRangeFullDate(monday)
+        const weekArrayWithFullDate = generateWeekRangeFullDate(monday);
         const onWeekBack = this.props.onWeekBack;
         const onWeekForward = this.props.onWeekForward;
         const getCurrentWeek = this.props.getCurrentWeek;
-        const weeksNum = this.props.weeksNum;
         const events = this.props.events;
 
         return (
@@ -21,7 +24,6 @@ class Calendar extends Component {
                     onWeekBack={onWeekBack}
                     onWeekForvard={onWeekForward}
                     getCurrentWeek={getCurrentWeek}
-                    weeksNum={weeksNum}
                     monday={monday}
                 />
                 <div className="calendar__body">
@@ -36,7 +38,11 @@ class Calendar extends Component {
                                         className="calendar__day"
                                     >
                                         <div className="calendar__day-line"></div>
-                                        <Day events={events} day={daySell} />
+                                        <Day
+                                            redLine={this.state.redLine}
+                                            events={events}
+                                            day={daySell}
+                                        />
                                     </div>
                                 );
                             })}

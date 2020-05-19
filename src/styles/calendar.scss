@@ -49,6 +49,23 @@
     border-bottom: 1px solid black;
 }
 
-// .calendar__day-sell:last-child {
-//     border: none;
-// }
+.calendar__day-sell:last-child {
+    border: none;
+}
+
+.red-line {
+    width: 198px;
+    background-color: red;
+    height: 2px;
+    position: absolute;
+}
+
+.red-circle {
+    width: 15px;
+    height: 15px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    left: -8px;
+    top: -6px;
+}

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Header from "./Header";
 import Calendar from "./Calendar";
 import Modal from "./Modal";
-import Popup from "./Popup";
 import { getStartOfWeek } from "./Utils";
 
 class App extends Component {
@@ -12,32 +11,25 @@ class App extends Component {
                 monday: getStartOfWeek(new Date()),
                 events: [
                     {
-                        title: "testevent1",
-                        date: "2020-05-18",
-                        startTime: "00:00",
-                        endTime: "00:30",
-                        description: "213414",
-                    },
-                    {
-                        title: "testevent2",
                         date: "2020-05-19",
+                        description: "sadasdsad",
+                        endTime: "03:00",
                         startTime: "01:00",
-                        endTime: "01:30",
-                        description: "213414",
+                        title: "asdsadsad",
                     },
                     {
-                        title: "testevent3",
-                        date: "2020-05-20",
+                        date: "2020-05-21",
+                        description: "sadasdsad",
+                        endTime: "03:00",
+                        startTime: "02:00",
+                        title: "asdsadsad",
+                    },
+                    {
+                        date: "2020-05-23",
+                        description: "sadasdsad",
+                        endTime: "03:00",
                         startTime: "03:00",
-                        endTime: "03:30",
-                        description: "213414",
-                    },
-                    {
-                        title: "testevent3",
-                        date: "2020-05-11",
-                        startTime: "23:00",
-                        endTime: "23:30",
-                        description: "213414",
+                        title: "asdsadsad",
                     },
                 ],
             });
@@ -67,6 +59,7 @@ class App extends Component {
 
     componentDidMount() {
         this.getCurrentWeek();
+        // this.timerID = setInterval(() => this.tick(), 1000);
     }
 
     getCurrentWeek = () => {
@@ -76,10 +69,20 @@ class App extends Component {
             monday: monday,
         });
     };
+    // componentWillUnmount() {
+    //     clearInterval(this.timerID);
+    // }
+
+    // tick = () => {
+    //     this.setState({
+    //         date: new Date(),
+    //     });
+    // };
 
     render() {
         return (
             <div className="page">
+                <Modal events={this.state.events} />
                 <Header
                     onWeekForward={this.onWeekForward}
                     onWeekBack={this.onWeekBack}
@@ -93,8 +96,6 @@ class App extends Component {
                     monday={this.state.monday}
                     events={this.state.events}
                 />
-                <Modal events={this.state.events} />
-                {/* <Popup /> */}
             </div>
         );
     }

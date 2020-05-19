@@ -1,9 +1,9 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const CopyPlugin = require('copy-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 const webpack = require("webpack");
-const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
+const MomentLocalesPlugin = require("moment-locales-webpack-plugin");
 
 module.exports = (env, argv) => {
     const isProduction = argv.mode === "production";
@@ -38,7 +38,7 @@ module.exports = (env, argv) => {
             }),
             new CopyPlugin([{ from: "_redirects", to: "" }]),
             new MomentLocalesPlugin({
-                localesToKeep: ['es-us', 'ru'],
+                localesToKeep: ["es-us", "ru"],
             }),
         ],
         resolve: {

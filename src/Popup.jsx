@@ -1,13 +1,18 @@
 import React, { Component } from "react";
 
 class Popup extends Component {
+    deleteEvent = (e) => {
+        console.log(e.target.value);
+    };
     render() {
         return (
-            <div className="popup hidden overlay">
-                <div className="popup__overlay"></div>
-                <div className="popup__content">
-                    <button className="delete-event-btn">Delete</button>
-                </div>
+            <div
+                className={`popup${this.props.showBox ? " show" : ""}`}
+            >
+                <i className="material-icons trash">delete</i>
+                <button className="delete-event-btn" onClick={this.deleteEvent}>
+                    Delete
+                </button>
             </div>
         );
     }

@@ -16,7 +16,7 @@ class Modal extends Component {
     hidePopup = () => {
         const hidden = document.getElementById("needToRemove");
         hidden.classList.add("hidden");
-    }
+    };
 
     setRef = (node) => {
         this.formRef = node;
