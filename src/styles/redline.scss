@@ -1,0 +1,17 @@
+.red-line {
+    width: 198px;
+    background-color: red;
+    height: 2px;
+    position: absolute; // and in Day in function +233 (pixels to start day)
+    // position: relative;
+}
+
+.red-circle {
+    width: 15px;
+    height: 15px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    left: -8px;
+    top: -6px;
+}

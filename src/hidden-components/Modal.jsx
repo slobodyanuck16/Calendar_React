@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "materialize-css";
+import { createEvent } from "../functions-and-gateway/eventsGateway";
 
 class Modal extends Component {
     createEventObj = (e) => {
@@ -8,9 +9,10 @@ class Modal extends Component {
             (acc, [name, value]) => ({ ...acc, [name]: value }),
             {}
         );
-        this.setState({
-            events: this.props.events.push(formData),
-        });
+
+        createEvent(formData).then(this.props.fetchEvents());
+        this.props.fetchEvents();
+        this.hidePopup()
     };
 
     hidePopup = () => {
@@ -40,7 +42,10 @@ class Modal extends Component {
                             onSubmit={this.createEventObj}
                             ref={this.setRef}
                         >
-                            <button className="create-event__close-btn">
+                            <button
+                                className="create-event__close-btn"
+                                onClick={this.hidePopup}
+                            >
                                 +
                             </button>
                             <input
@@ -75,7 +80,7 @@ class Modal extends Component {
                             <button
                                 type="submit"
                                 className="event-form__submit-btn"
-                                onClick={this.hidePopup}
+                                // onClick={this.hidePopup}
                             >
                                 Create
                             </button>

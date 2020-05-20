@@ -7,11 +7,7 @@ export const getStartOfWeek = (date) => {
             ? -6 // for Sunday
             : 1 - dayOfWeek;
     const monday = new Date(dateCopy.setDate(date.getDate() + difference));
-    return new Date(
-        monday.getFullYear(),
-        monday.getMonth(),
-        monday.getDate()
-    );
+    return new Date(monday.getFullYear(), monday.getMonth(), monday.getDate());
 };
 
 // вернет массив из 7 дней, начиная с переданной даты
@@ -25,24 +21,24 @@ export const generateWeekRange = (startDate) => {
 };
 
 const monthsNames = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
 ];
 
 // вернет месяц и год для недели, в которой находится переданный день
-export const getDisplayedMonth = date => {
+export const getDisplayedMonth = (date) => {
     const weekStart = getStartOfWeek(date);
-    const weekEnd = shmoment(date).add('days', 6).result();
+    const weekEnd = shmoment(date).add("days", 6).result();
     const startMonth = weekStart.getMonth();
     const startYear = weekStart.getFullYear();
     const endMonth = weekEnd.getMonth();
@@ -58,34 +54,36 @@ export const getDisplayedMonth = date => {
 };
 
 const getMethodsNames = {
-    years: 'getFullYear',
-    months: 'getMonth',
-    days: 'getDate',
-    hours: 'getHours',
-    minutes: 'getMinutes',
-    seconds: 'getSeconds',
-    milliseconds: 'getMilliseconds',
-  }
-  
-  const setMethodsNames = {
-    years: 'setFullYear',
-    months: 'setMonth',
-    days: 'setDate',
-    hours: 'setHours',
-    minutes: 'setMinutes',
-    seconds: 'setSeconds',
-    milliseconds: 'setMilliseconds',
-  }
-  
-  // ф-ция помогает добавить или отнять определенное количество времени от заданного
-  // урпощенный аналог популярной библиотеки moment
-  const shmoment = (date) => {
+    years: "getFullYear",
+    months: "getMonth",
+    days: "getDate",
+    hours: "getHours",
+    minutes: "getMinutes",
+    seconds: "getSeconds",
+    milliseconds: "getMilliseconds",
+};
+
+const setMethodsNames = {
+    years: "setFullYear",
+    months: "setMonth",
+    days: "setDate",
+    hours: "setHours",
+    minutes: "setMinutes",
+    seconds: "setSeconds",
+    milliseconds: "setMilliseconds",
+};
+
+// ф-ция помогает добавить или отнять определенное количество времени от заданного
+// урпощенный аналог популярной библиотеки moment
+const shmoment = (date) => {
     let result = new Date(date);
-  
+
     const calculator = {
         add(units, value) {
             const currentUnitValue = result[getMethodsNames[units]]();
-            result = new Date(result[setMethodsNames[units]](currentUnitValue + value));
+            result = new Date(
+                result[setMethodsNames[units]](currentUnitValue + value)
+            );
             return this;
         },
         subtract(units, value) {
@@ -93,13 +91,13 @@ const getMethodsNames = {
         },
         result() {
             return result;
-        }
+        },
     };
-  
+
     return calculator;
-  }
-  
-  export default shmoment;
+};
+
+export default shmoment;
 
 export const generateWeekRangeFullDate = (startDate) => {
     const result = [];
@@ -118,13 +116,13 @@ export const generateNumbersRange = (from, to) => {
     return result;
 };
 
-
 export const getHoursArray = () => {
-    const hoursArray = generateNumbersRange(0, 23)
-        .map(num => {
-                if ((num - 10) < 0) {
-                    return `0${num}:00`}
-                else {return `${num}:00`}
-            });   
+    const hoursArray = generateNumbersRange(0, 23).map((num) => {
+        if (num - 10 < 0) {
+            return `0${num}:00`;
+        } else {
+            return `${num}:00`;
+        }
+    });
     return hoursArray;
-}
+};

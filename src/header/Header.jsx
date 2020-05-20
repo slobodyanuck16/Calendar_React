@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import moment from "moment";
-import { getDisplayedMonth } from "./Utils";
+import { getDisplayedMonth } from "../functions-and-gateway/Utils";
 import ReactDOM from 'react-dom';
 
 class Header extends Component {

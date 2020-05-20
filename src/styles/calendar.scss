@@ -6,6 +6,7 @@
 .calendar__header-day {
     margin-top: 10px;
     display: flex;
+    position: relative;
     flex-direction: column;
     align-items: center;
     font-size: 11px;
@@ -19,6 +20,16 @@
 .calendar__header-num {
     margin-top: 10px;
     font-size: 25px;
+}
+
+.calendar__header-circle {
+    background-color: blue;
+    opacity: 50%;
+    position: absolute;
+    bottom: 0px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }
 
 .calendar__week {
@@ -51,21 +62,4 @@
 
 .calendar__day-sell:last-child {
     border: none;
-}
-
-.red-line {
-    width: 198px;
-    background-color: red;
-    height: 2px;
-    position: absolute;
-}
-
-.red-circle {
-    width: 15px;
-    height: 15px;
-    background-color: red;
-    border-radius: 50%;
-    position: absolute;
-    left: -8px;
-    top: -6px;
 }

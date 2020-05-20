@@ -1,37 +1,16 @@
 import React, { Component } from "react";
-import Header from "./Header";
-import Calendar from "./Calendar";
-import Modal from "./Modal";
-import { getStartOfWeek } from "./Utils";
+import Header from "./header/Header";
+import Calendar from "./calendar/Calendar";
+import Modal from "./hidden-components/Modal";
+import { getStartOfWeek } from "./functions-and-gateway/Utils";
+import { fetchEventsList, deleteEvent } from "./functions-and-gateway/eventsGateway";
 
 class App extends Component {
     constructor(props) {
         super(props),
             (this.state = {
                 monday: getStartOfWeek(new Date()),
-                events: [
-                    {
-                        date: "2020-05-19",
-                        description: "sadasdsad",
-                        endTime: "03:00",
-                        startTime: "01:00",
-                        title: "asdsadsad",
-                    },
-                    {
-                        date: "2020-05-21",
-                        description: "sadasdsad",
-                        endTime: "03:00",
-                        startTime: "02:00",
-                        title: "asdsadsad",
-                    },
-                    {
-                        date: "2020-05-23",
-                        description: "sadasdsad",
-                        endTime: "03:00",
-                        startTime: "03:00",
-                        title: "asdsadsad",
-                    },
-                ],
+                events: [],
             });
     }
 
@@ -59,7 +38,10 @@ class App extends Component {
 
     componentDidMount() {
         this.getCurrentWeek();
-        // this.timerID = setInterval(() => this.tick(), 1000);
+        // setInterval(() => {
+        //     this.fetchEvents();
+        // }, 1000);
+        this.fetchEvents();
     }
 
     getCurrentWeek = () => {
@@ -69,20 +51,26 @@ class App extends Component {
             monday: monday,
         });
     };
-    // componentWillUnmount() {
-    //     clearInterval(this.timerID);
-    // }
 
-    // tick = () => {
-    //     this.setState({
-    //         date: new Date(),
-    //     });
-    // };
+    fetchEvents = () => {
+        fetchEventsList().then((eventsList) => {
+            this.setState({
+                events: eventsList,
+            });
+        });
+    };
+
+    handleEventDelete = (id) => {
+        deleteEvent(id).then(() => this.fetchEvents());
+    };
 
     render() {
         return (
             <div className="page">
-                <Modal events={this.state.events} />
+                <Modal
+                    events={this.state.events}
+                    fetchEvents={this.fetchEvents}
+                />
                 <Header
                     onWeekForward={this.onWeekForward}
                     onWeekBack={this.onWeekBack}
@@ -95,6 +83,7 @@ class App extends Component {
                     getCurrentWeek={this.getCurrentWeek}
                     monday={this.state.monday}
                     events={this.state.events}
+                    handleEventDelete={this.handleEventDelete}
                 />
             </div>
         );

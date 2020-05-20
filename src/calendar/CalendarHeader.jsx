@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getStartOfWeek, generateWeekRange } from "./Utils";
+import { getStartOfWeek, generateWeekRange } from "../functions-and-gateway/Utils";
 
 class CalendarHeader extends Component {
     constructor(props) {
@@ -25,6 +25,7 @@ class CalendarHeader extends Component {
                             <div className="calendar__header-num">
                                 {weeksNum[i++]}
                             </div>
+                            <div className="calendar__header-circle"></div>
                         </div>
                     );
                 })}

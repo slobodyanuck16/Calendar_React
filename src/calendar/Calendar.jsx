@@ -3,13 +3,9 @@ import Day from "./Day";
 import CalendarHeader from "./CalendarHeader";
 import CalendarTimeScale from "./CalendarTimeScale";
 import CalendarLines from "./CalendarLines";
-import { generateWeekRangeFullDate } from "./Utils";
+import { generateWeekRangeFullDate } from "../functions-and-gateway/Utils";
 
 class Calendar extends Component {
-    state = {
-        redLine: new Date(),
-    };
-
     render() {
         const monday = this.props.monday;
         const weekArrayWithFullDate = generateWeekRangeFullDate(monday);
@@ -17,6 +13,7 @@ class Calendar extends Component {
         const onWeekForward = this.props.onWeekForward;
         const getCurrentWeek = this.props.getCurrentWeek;
         const events = this.props.events;
+        const handleEventDelete= this.props.handleEventDelete
 
         return (
             <section className="calendar">
@@ -39,9 +36,9 @@ class Calendar extends Component {
                                     >
                                         <div className="calendar__day-line"></div>
                                         <Day
-                                            redLine={this.state.redLine}
                                             events={events}
                                             day={daySell}
+                                            handleEventDelete={handleEventDelete}
                                         />
                                     </div>
                                 );

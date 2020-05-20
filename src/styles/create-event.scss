@@ -1,9 +1,28 @@
 // стили формы события внутри модального окна
+.overlay {
+    position: fixed;
+    top: 25%;
+    left: 0;
+    width: 390px;
+    height: 350px;
+    border-radius: 8px;
+    background-color: #cccccc45;
+    z-index: 10;
+}
+
 .modal {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     &__content {
         display: flex;
         width: 390px;
         height: 350px;
+        background: #fff;
+        padding: 5px 16px 5px 16px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
     }
     &__content-icons {
         display: flex;
@@ -69,4 +88,8 @@
         border: none;
         transform: rotate(45deg);
     }
+}
+
+.hidden {
+    display: none;
 }
