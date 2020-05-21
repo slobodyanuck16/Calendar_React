@@ -6,8 +6,29 @@ class CalendarHeader extends Component {
         super(props),
             (this.state = {
                 weeksName: ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"],
+                circle: new Date(),
+                showCirle: false,
             });
     }
+
+    // componentDidMount() {
+    //     this.showCirleOnToday();
+    //     this.getSecondsToday();
+    //     setInterval(() => {
+    //         this.getSecondsToday();
+    //     }, 60000);
+    // }
+
+    // showCirleOnToday = () => {
+    //     if (
+    //         moment(this.props.day).format("YYYY-MM-DD") ===
+    //         moment(this.state.circle).format("YYYY-MM-DD")
+    //     ) {
+    //         this.setState({
+    //             showCirle: true,
+    //         });
+    //     }
+    // };
 
     render() {
         const headerDays = this.state.weeksName.slice();

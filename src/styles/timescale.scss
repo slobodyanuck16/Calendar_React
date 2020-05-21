@@ -5,13 +5,13 @@
 
 .calendar__lines {
     width: 20px;
-    border-right: 1px solid black;
+    border-right: 1px solid lightgrey;
     display: flex;
     flex-direction: column;
 }
 
 .calendar__lines-semi {
-border-bottom: 1px solid black;
+border-bottom: 1px solid lightgrey;
 height: 60px;
 }
 
@@ -25,14 +25,16 @@ height: 60px;
     width: 80px;
     align-items: center;
     font-size: 13px;
+    color: grey;
 }
 
 .calendar__time-scale-polar {
     font-size: 13px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid lightgrey;
     width: 100%;
     padding-left: 10px;
     height: 20.2px;
+    color: grey;
 }
 
 .calendar__time-scale-time {

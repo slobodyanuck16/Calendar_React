@@ -80,7 +80,7 @@ class Modal extends Component {
                             <button
                                 type="submit"
                                 className="event-form__submit-btn"
-                                // onClick={this.hidePopup}
+                                // onClick={this.hidePopup}w
                             >
                                 Create
                             </button>

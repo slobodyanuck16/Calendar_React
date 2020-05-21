@@ -39,7 +39,7 @@
 
 .calendar__day {
     width: 15%;
-    border-right: 1px solid black;
+    border-right: 1px solid lightgrey;
     display: flex;
     flex-direction: column;
     // border-: 1px solid black;
@@ -51,13 +51,13 @@
 
 .calendar__day-line {
     height: 20.2px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid lightgrey;
 }
 
 .calendar__day-sell {
     height: 60px;
     width: 100%;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid lightgrey;
 }
 
 .calendar__day-sell:last-child {

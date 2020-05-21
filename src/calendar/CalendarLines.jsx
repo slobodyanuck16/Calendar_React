@@ -28,7 +28,6 @@ class CalendarLines extends Component {
             "",
             "",
             "",
-            "",
         ],
     };
 
