@@ -3,7 +3,11 @@ import Header from "./header/Header";
 import Calendar from "./calendar/Calendar";
 import Modal from "./hidden-components/Modal";
 import { getStartOfWeek } from "./functions-and-gateway/Utils";
-import { fetchEventsList, deleteEvent } from "./functions-and-gateway/eventsGateway";
+import {
+    fetchEventsList,
+    deleteEvent,
+    createEvent,
+} from "./functions-and-gateway/eventsGateway";
 
 class App extends Component {
     constructor(props) {
@@ -11,6 +15,7 @@ class App extends Component {
             (this.state = {
                 monday: getStartOfWeek(new Date()),
                 events: [],
+                isModalVisible: false,
             });
     }
 
@@ -22,6 +27,14 @@ class App extends Component {
 
         this.setState({
             monday: futureMonday,
+        });
+    };
+
+    toggleModalVisibility = () => {
+        this.setState((prevState) => {
+            return {
+                isModalVisible: !prevState.isModalVisible,
+            };
         });
     };
 
@@ -38,17 +51,14 @@ class App extends Component {
 
     componentDidMount() {
         this.getCurrentWeek();
-        // setInterval(() => {
-        //     this.fetchEvents();
-        // }, 1000);
         this.fetchEvents();
     }
 
     getCurrentWeek = () => {
-        const monday = getStartOfWeek(new Date());
+        const curMonday = getStartOfWeek(new Date());
 
         this.setState({
-            monday: monday,
+            monday: curMonday,
         });
     };
 
@@ -60,6 +70,16 @@ class App extends Component {
         });
     };
 
+    createNewEvent = async (newEventData) => {
+        // this.setState({
+        //     events: [...this.state.events, newEventData]
+        // })
+        const newCalendar = await createEvent(newEventData);
+        this.fetchEvents();
+
+        console.log("newCalendar:= ", newCalendar);
+    };
+
     handleEventDelete = (id) => {
         deleteEvent(id).then(() => this.fetchEvents());
     };
@@ -67,15 +87,20 @@ class App extends Component {
     render() {
         return (
             <div className="page">
-                <Modal
-                    events={this.state.events}
-                    fetchEvents={this.fetchEvents}
-                />
+                {this.state.isModalVisible && (
+                    <Modal
+                        events={this.state.events}
+                        fetchEvents={this.fetchEvents}
+                        onAddNewEvent={this.createNewEvent}
+                        toggleModalVisibility={this.toggleModalVisibility}
+                    />
+                )}
                 <Header
                     onWeekForward={this.onWeekForward}
                     onWeekBack={this.onWeekBack}
                     getCurrentWeek={this.getCurrentWeek}
                     monday={this.state.monday}
+                    toggleModalVisibility={this.toggleModalVisibility}
                 />
                 <Calendar
                     onWeekForward={this.onWeekForward}

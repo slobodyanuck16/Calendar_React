@@ -2,10 +2,19 @@ import React, { Component } from "react";
 import { getDisplayedMonth } from "../functions-and-gateway/Utils";
 
 class Header extends Component {
+    constructor(props) {
+        super(props);
+    }
+
     createEvent = () => {
         const hidden = document.getElementById("needToRemove");
         hidden.classList.remove("hidden");
     }
+
+    onCreateNewEventHandndler = () => {
+        this.props.toggleModalVisibility();
+    }
+
     render() {
         const onWeekForward = this.props.onWeekForward;
         const onWeekBack = this.props.onWeekBack;
@@ -15,7 +24,7 @@ class Header extends Component {
         return (
             <header className="header"
             onScroll={this.stickHeaderOnScroll}>
-                <button className="header__element button create-event-btn" onClick={this.createEvent}>
+                <button className="header__element button create-event-btn" onClick={this.onCreateNewEventHandndler}>
                 <i className="small material-icons create-event-btn__icon">add</i>Create
                 </button>
                 <div className="header__element navigation">
