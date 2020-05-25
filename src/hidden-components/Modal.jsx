@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import "materialize-css";
 
 const defaultFormState = {
-    title: "",
+    title: "Add title of your event",
     date: "",
     startTime: "",
     endTime: "",
@@ -53,7 +52,7 @@ class Modal extends Component {
 
     render() {
         return (
-            <div className="modal overlay" id="needToRemove">
+            <div className="modal">
                 <div className="modal__content">
                     <div className="modal__content-icons">
                         <i className="small material-icons modal__content-clock">
@@ -72,7 +71,7 @@ class Modal extends Component {
                                 className="create-event__close-btn"
                                 onClick={this.hidePopup}
                             >
-                                <i class="small material-icons">close</i>
+                                <i className="small material-icons">close</i>
                             </button>
                             <input
                                 onChange={this.inputHandler}
@@ -111,9 +110,8 @@ class Modal extends Component {
                             <button
                                 type="submit"
                                 className="event-form__submit-btn"
-                                // onClick={this.hidePopup}w
                             >
-                                <a class="waves-effect waves-light btn">Save</a>
+                                <a className="waves-effect waves-light btn">Save</a>
                             </button>
                         </form>
                     </div>
