@@ -4,6 +4,8 @@ import CalendarHeader from "./CalendarHeader";
 import CalendarTimeScale from "./CalendarTimeScale";
 import CalendarLines from "./CalendarLines";
 import { generateWeekRangeFullDate } from "../functions-and-gateway/Utils";
+import './calendar.scss'
+import './timescale.scss'
 
 class Calendar extends Component {
     render() {

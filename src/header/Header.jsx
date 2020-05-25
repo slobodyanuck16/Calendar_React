@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { getDisplayedMonth } from "../functions-and-gateway/Utils";
+import './header.scss';
+
 
 class Header extends Component {
     constructor(props) {

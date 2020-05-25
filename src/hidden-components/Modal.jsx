@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import './create-event.scss'
+
 
 const defaultFormState = {
     title: "Add title of your event",
@@ -85,7 +87,7 @@ class Modal extends Component {
                                     onChange={this.inputHandler}
                                     type="date"
                                     name="date"
-                                    className="event-form__time-date"
+                                    className="event-form__time-date alltime"
                                 />
                                 <input
                                     onChange={this.inputHandler}

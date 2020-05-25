@@ -1,14 +1,3 @@
-@import './styles/page.scss';
-@import './styles/common.scss';
-@import './styles/navigation.scss';
-@import './styles/calendar.scss';
-@import './styles/timescale.scss';
-@import './styles/event.scss';
-@import './styles/header.scss';
-@import './styles/redline.scss';
-@import './styles/delete-popup.scss';
-@import './styles/create-event.scss';
-
 * {
     box-sizing: border-box;
 }
@@ -16,4 +5,29 @@
 body {
     font-size: 18px;
     font-family: 'Roboto', sans-serif;
+}
+
+.button {
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.icon-button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background: transparent;
+}
+
+.page {
+    height: 100vh;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    position: relative;
 }

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './delete-popup.scss'
 
 class Popup extends Component {
     render() {
