@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import './create-event.scss'
-
+import './modal.scss'
 
 const defaultFormState = {
     title: "Add title of your event",
