@@ -7,8 +7,7 @@ class Popup extends Component {
         const handleEventDelete = this.props.handleEventDelete;
         return (
             <div
-                // className={`popup${this.props.showBox ? " show" : ""}`}
-                className="popup show"
+                className={`popup${this.props.showBox ? " show" : ""}`}
             >
                 <i className="material-icons trash">delete</i>
                 <button

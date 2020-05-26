@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import moment from "moment";
 import { generateNumbersRange } from "../functions-and-gateway/Utils";
 import Popup from "../hidden-components/Popup";
-import './redline.scss';
-import './event.scss';
+import "./redline.scss";
+import "./event.scss";
 
 class Day extends Component {
     state = {
@@ -40,12 +40,9 @@ class Day extends Component {
         return hoursArray;
     };
 
-    // showDeleteBtn = () => {
-    //     this.setState({ showBox: !this.state.showBox });
-    // };
-    // hideDeleteBtn = () => {
-    //     this.setState({ showBox: !this.state.showBox });
-    // };
+    toggleDeleteBtn = () => {
+        this.setState({ showBox: !this.state.showBox });
+    };
 
     componentDidMount() {
         this.showOrHideRedLine();
@@ -112,18 +109,21 @@ class Day extends Component {
                                     <div
                                         key={event.id}
                                         className="event"
-                                        onMouseEnter={this.showDeleteBtn}
-                                        onMouseOut={this.hideDeleteBtn}
+                                        onClick={this.toggleDeleteBtn}
                                     >
                                         {`${event.title} 
                                  ${event.startTime} ${event.endTime}`}
-                                        <Popup
-                                            showBox={this.state.showBox}
-                                            id={event.id}
-                                            handleEventDelete={
-                                                handleEventDelete
-                                            }
-                                        />
+                                        {this.state.showRedLine ? (
+                                            <Popup
+                                                showBox={this.state.showBox}
+                                                id={event.id}
+                                                handleEventDelete={
+                                                    handleEventDelete
+                                                }
+                                            />
+                                        ) : (
+                                            ""
+                                        )}
                                     </div>
                                 );
                             })}
