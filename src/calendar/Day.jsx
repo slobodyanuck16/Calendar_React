@@ -41,6 +41,8 @@ class Day extends Component {
     };
 
     toggleDeleteBtn = () => {
+        console.log(this.state);
+
         this.setState({ showBox: !this.state.showBox });
     };
 
@@ -113,7 +115,7 @@ class Day extends Component {
                                     >
                                         {`${event.title} 
                                  ${event.startTime} ${event.endTime}`}
-                                        {this.state.showRedLine ? (
+                                        {this.state.showBox ? (
                                             <Popup
                                                 showBox={this.state.showBox}
                                                 id={event.id}
